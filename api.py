@@ -55,12 +55,6 @@ init_error_handlers(my_app)
 # Register the routes with dependency injection
 init_mongoping_route(my_app)
 init_ping_route(my_app)
-init_setupserver_route(my_app)
-init_getserver_route(my_app)
-init_releaseserver_route(my_app)
-init_pushcommands_route(my_app)
-init_loadprofile_route(my_app)
-init_saveprofile_route(my_app)
 
 if __name__ == "__main__":
     # If testing locally, ensure that .env is created and necessary variables are set, including FLASK_ENV
