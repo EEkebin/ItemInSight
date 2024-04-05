@@ -38,9 +38,13 @@ An Inventory System Manager to manage inventory whereabouts.
 ## Credits
 
 > [EEkebin](https://github.com/EEkebin)
+
 > [ADigitalFrontier](https://github.com/ADigitalFrontier)
+
 > [TheReal-V-lad](https://github.com/TheReal-V-lad)
+
 > [JamesFSmith41](https://github.com/JamesFSmith41)
+
 
 
 ## Disclaimers
