@@ -2,7 +2,7 @@
 from flask import jsonify
 
 def init_app(app_instance):
-    @app_instance.app.route('/mongoping')
+    @app_instance.app.route('/mongoping', methods=['POST'])
     def mongoping():
         try:
             app_instance.db.command('ping')
