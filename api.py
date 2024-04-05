@@ -10,12 +10,6 @@ from utils.error_handlers import init_error_handlers
 
 from routes.mongoping import init_app as init_mongoping_route
 from routes.ping import init_app as init_ping_route
-from routes.setupserver import init_app as init_setupserver_route
-from routes.getserver import init_app as init_getserver_route
-from routes.releaseserver import init_app as init_releaseserver_route
-from routes.pushcommands import init_app as init_pushcommands_route
-from routes.loadprofile import init_app as init_loadprofile_route
-from routes.saveprofile import init_app as init_saveprofile_route
 
 
 class App:
