@@ -24,7 +24,7 @@ def init_app(app_instance):
             # Make a request to the first backend to get the image
             response = requests.get(image_endpoint, headers={"Authorization": auth_key})
 
-            logging.info(f'Image endpoint: {image_endpoint}')
+            logging.error(f'Image endpoint: {image_endpoint}')
             
             # If the request was successful, forward the image data
             if response.status_code == 200:
