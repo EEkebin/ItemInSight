@@ -6,16 +6,16 @@ const ItemGrid: React.FC<{items : Item[]}> = (props) => {
     const [itemsList, setItems] = useState<Array<Item>>(props.items);
 
     return(
-        <div className="flex flex-col items-center ">
-            <h1 className="font-bold text-xl text-white">Items</h1>
-            <div className="grid grid-cols-3  w-full h-full">
+        <div className="flex flex-col items-center w-full my-10">
+            <h1 className="font-bold text-xl text-white mb-5">Items</h1>
+            <div className="grid grid-cols-3 space-10 place-items-center w-full h-full">
             {itemsList.map((item, index) => (
-            <div key={index} className="cursor-pointer hover:md:animate-wiggle flex flex-col justify-start items-center bg-grid-item w-64 h-80 m-2 p-5 rounded-md text-center text-white font-bold shadow-lg shadow-ui-button" >
+            <div key={index} className="flex flex-col cursor-pointer justify-start items-center hover:md:animate-wiggle bg-grid-item w-3/4 h-3/4 rounded-md text-center text-white font-bold shadow-lg shadow-ui-button my-10 p-5" >
                 {item.name}
-                <Image className="w-3/4 h-1/2"
+                <Image 
                 src={item.photoUrl}
-                width={200}
-                height={200}
+                width={150}
+                height={150}
                 alt="item"
                 />
                 <h1 className="font-bold text-white text-center">{item.itemDesc}</h1>
