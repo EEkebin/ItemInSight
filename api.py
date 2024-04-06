@@ -4,7 +4,6 @@ from pymongo import MongoClient
 from pymongo.server_api import ServerApi
 from urllib.parse import quote_plus
 from dotenv import load_dotenv
-import requests
 import os
 
 from utils.error_handlers import init_error_handlers
@@ -24,17 +23,6 @@ from routes.ping import init_app as init_ping_route
 # from routes.setlocation import init_app as init_setlocation_route
 
 # END TODO
-
-
-# Sending the GET request
-response = requests.get(url, headers=headers)
-
-# Checking if the request was successful
-if response.status_code == 200:
-    # Printing the content of the file
-    print(response.text)
-else:
-    print(f"Failed to retrieve the file. Status code: {response.status_code}")
 
 
 class App:
