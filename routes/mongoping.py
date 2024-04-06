@@ -1,8 +1,10 @@
 # routes/mongoping.py
 from flask import jsonify
+from utils.auth import require_auth
 
 def init_app(app_instance):
     @app_instance.app.route('/mongoping')
+    @require_auth
     def mongoping():
         try:
             app_instance.db.command('ping')

@@ -11,6 +11,16 @@ from utils.error_handlers import init_error_handlers
 from routes.mongoping import init_app as init_mongoping_route
 from routes.ping import init_app as init_ping_route
 
+# Sending the GET request
+response = requests.get(url, headers=headers)
+
+# Checking if the request was successful
+if response.status_code == 200:
+    # Printing the content of the file
+    print(response.text)
+else:
+    print(f"Failed to retrieve the file. Status code: {response.status_code}")
+
 
 class App:
     # We will inject an App reference into the routes so we can reuse things easily
@@ -40,7 +50,7 @@ class App:
 
         # Get the Image Database variables
         self.idb_port = os.environ.get('IDB_PORT', 'default_idb_port')
-        self.idb_ip = os.environ.get('IDB_IP', 'default_idb_ip')
+        self.idb_base_url = os.environ.get('IDB_BASE_URL', 'default_idb_base_url')
         self.idb_auth = os.environ.get('IDB_AUTH', 'default_idb_auth')
 
 
