@@ -1,11 +1,9 @@
 # Updates or creates a user if they do not already exist
 # routes/setuser.py
 from flask import jsonify
-from utils.auth import require_auth
 
 def init_app(app_instance):
     @app_instance.app.route('/setuser')
-    @require_auth
     def setuser():
         try:
             app_instance.db.command('TODO???')

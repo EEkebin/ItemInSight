@@ -1,12 +1,11 @@
 # routes/setimage.py
 from flask import request, jsonify
 from werkzeug.utils import secure_filename
-from utils.auth import require_auth
+import requests
 import os
 
 def init_app(app_instance):
     @app_instance.app.route('/setimage', methods=['POST'])
-    @require_auth
     def setimage():
         try:
             # Check if there is a file in the request
@@ -27,11 +26,11 @@ def init_app(app_instance):
             filename = secure_filename(file.filename)
 
             # Base URL of the first backend
-            idb_base_url = app_instance.config['IDB_BASE_URL']
+            idb_base_url = app_instance.idb_base_url
             # Endpoint for saving the image
             save_endpoint = f"{idb_base_url}/save/{filename}"
             # Authorization key
-            auth_key = "yv0R0UiXE4VSMPXWs"  # This should ideally be stored/configured securely
+            auth_key = app_instance.idb_auth  # This should ideally be stored/configured securely
             
             # Prepare the file in a form that can be sent via POST request
             files = {'file': (filename, file.stream, 'image/png')}

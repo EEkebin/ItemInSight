@@ -1,13 +1,18 @@
 # routes/getimage.py
 from flask import jsonify, request, Response
-from utils.auth import require_auth
 import requests
 
 def init_app(app_instance):
     @app_instance.app.route('/getimage/<path:image_name>', methods=['GET'])
-    @require_auth
     def getimage(image_name):
         try:
+            username = request.headers.get('username')
+            password = request.headers.get('password')
+
+            user = app_instance.get_authed_user(app_instance, username, password)
+            if not user:
+                return jsonify({"error": "Unauthorized: Incorrect username or password"}), 401
+
             # Check if the file extension is .png
             if not image_name.lower().endswith('.png'):
                 return jsonify({"error": "Only PNG images are allowed."}), 400
@@ -15,7 +20,7 @@ def init_app(app_instance):
             # Base URL of the first backend
             idb_base_url = app_instance.idb_base_url
             # Endpoint for the specific image
-            image_endpoint = f"{idb_base_url}/get/{image_name}"
+            image_endpoint = f"{idb_base_url}/get/{username + "/" + image_name}"
             # Authorization key
             auth_key = app_instance.idb_auth  # This should ideally be stored/configured securely
             
