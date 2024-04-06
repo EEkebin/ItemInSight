@@ -1,7 +1,9 @@
 from flask import request, jsonify
+from flask_cors import cross_origin
 
 def init_app(app_instance):
     @app_instance.app.route('/setuser', methods=['POST'])
+    @cross_origin()
     def setuser():
         try:
             username = request.json.get('username')

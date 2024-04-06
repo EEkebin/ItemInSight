@@ -4,6 +4,8 @@ from pymongo import MongoClient
 from pymongo.server_api import ServerApi
 from urllib.parse import quote_plus
 from dotenv import load_dotenv
+from flask_cors import CORS, cross_origin
+
 import os
 
 from utils.error_handlers import init_error_handlers
@@ -57,6 +59,9 @@ class App:
 # Expose app at the module level
 my_app = App()
 app = my_app.app
+
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 # Initialize the error handlers
 init_error_handlers(my_app)

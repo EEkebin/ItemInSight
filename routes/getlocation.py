@@ -1,8 +1,10 @@
 from flask import request, jsonify
+from flask_cors import cross_origin
 import requests
 
 def init_app(app_instance):
     @app_instance.app.route('/getlocation/<path:dir_path>', methods=['GET'])
+    @cross_origin()
     def getlocation(dir_path):
         username = request.headers.get('username')
         password = request.headers.get('password')

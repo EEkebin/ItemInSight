@@ -1,10 +1,12 @@
 # routes/setimage.py
 from flask import request, jsonify
+from flask_cors import cross_origin
 import requests
 import os
 
 def init_app(app_instance):
     @app_instance.app.route('/setimage/<path:image_dir>', methods=['POST'])
+    @cross_origin()
     def setimage(image_dir):
         try:
 
