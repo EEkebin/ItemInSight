@@ -692,6 +692,15 @@ video {
 .border-2 {
   border-width: 2px;
 }
+.border-0 {
+  border-width: 0px;
+}
+.border-r-2 {
+  border-right-width: 2px;
+}
+.border-b-2 {
+  border-bottom-width: 2px;
+}
 .border-dashed {
   border-style: dashed;
 }
@@ -788,6 +797,15 @@ video {
 .hover\:bg-ui-button-hover:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(19 20 26 / var(--tw-bg-opacity));
+}
+
+
+
+
+
+.hover\:bg-main-background:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(27 27 52 / var(--tw-bg-opacity));
 }
 
 
