@@ -7,11 +7,11 @@ export default function Home() {
 
  const [login, setLogin] = useState(true);
   return (
-    <div className="flex w-screen h-screen flex-col items-center justify-center">
-      <div className="w-1/4 min-h-1/2 max-h-3/4 bg-ui-button rounded-md text-center"> 
+    <div className="bg-main-background flex w-screen h-screen flex-col items-center justify-center">
+      <div className="font-mono w-1/4 min-h-1/2 max-h-3/4 bg-main-background rounded-md text-center shadow-lg shadow-ui-button"> 
        {login ? <Login/> : <Logout/>}
-       <button className="font-bold text-xl bg-ui-button hover:bg-ui-button-hover text-white p-3 rounded-md px-5" onClick={() => setLogin(!login)}>
-          Change to {login ? "Signup" : "Login"}
+       <button className="w-3/4 font-mono font-bold text-md bg-ui-button hover:bg-ui-button-hover text-white p-2 m-3 rounded-2xl px-2" onClick={() => setLogin(!login)}>
+          {login ? "Signup" : "Login"}
         </button>
        </div>
     </div>
