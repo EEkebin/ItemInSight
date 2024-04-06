@@ -10,7 +10,7 @@ def init_app(app_instance):
         # Get the description from the JSON body
         description = request.json.get('description', None)
 
-        user = app_instance.get_authed_user(username, password)
+        user = app_instance.get_authed_user(app_instance, username, password)
         if not user:
             return jsonify({"error": "Unauthorized: Incorrect username or password"}), 401
 
