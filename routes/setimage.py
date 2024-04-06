@@ -1,13 +1,11 @@
 # routes/setimage.py
 from flask import request, jsonify
 from werkzeug.utils import secure_filename
-from utils.auth import require_auth
 import requests
 import os
 
 def init_app(app_instance):
     @app_instance.app.route('/setimage', methods=['POST'])
-    @require_auth
     def setimage():
         try:
             # Check if there is a file in the request

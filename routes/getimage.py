@@ -1,11 +1,9 @@
 # routes/getimage.py
 from flask import jsonify, request, Response
-from utils.auth import require_auth
 import requests
 
 def init_app(app_instance):
     @app_instance.app.route('/getimage/<path:image_name>', methods=['GET'])
-    @require_auth
     def getimage():
         try:
             username = request.headers.get('username')

@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 import os
 
 from utils.error_handlers import init_error_handlers
-from utils.auth import get_authed_user
+from utils.get_authed_user import get_authed_user
 
 from routes.mongoping import init_app as init_mongoping_route
 from routes.ping import init_app as init_ping_route
