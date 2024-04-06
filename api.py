@@ -14,7 +14,6 @@ from routes.ping import init_app as init_ping_route
 
 # TODO: implement the following routes
 
-from routes.getimage import init_app as init_getimage_route
 from routes.setimage import init_app as init_setimage_route
 
 # from routes.getuser import init_app as init_getuser_route
