@@ -2,8 +2,6 @@
 from flask import jsonify, request, Response, abort
 from utils.auth import require_auth
 import requests
-import logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 def init_app(app_instance):
     @app_instance.route('/getimage/<path:image_name>', methods=['GET'])
@@ -24,7 +22,7 @@ def init_app(app_instance):
             # Make a request to the first backend to get the image
             response = requests.get(image_endpoint, headers={"Authorization": auth_key})
 
-            logging.error(f'Image endpoint: {image_endpoint}')
+            raise Exception(image_endpoint)
             
             # If the request was successful, forward the image data
             if response.status_code == 200:
