@@ -8,16 +8,19 @@ import { usePathname } from 'next/navigation'
 import { withRouter } from 'next/router'
 import { useRouter } from 'next/router'
 
+// Variables used for promises and their returned values
 let fullfilled = false;
 let promiseItem : Promise<Item[]>;
 let dataItem : Item[];
 let promiseLocation : Promise<Location[]>;
 let dataLocation : Location[];
 
+// Gets item list
 function getItems(user: string) {
   return itemPlaceHolder
 }
 
+// Gets locations list
 function getLocations(locationName : string) {
   
   // const filteredArray = itemPlaceHolder.filter(item => item.name === locationName)
@@ -28,6 +31,8 @@ function getLocations(locationName : string) {
   //temp.push(filteredArray)
   return temp
 }
+
+// Fetches items 
 export const fetchItems = () => {
   if (dataItem != null) return
   if (!fullfilled) {
@@ -45,6 +50,7 @@ export const fetchItems = () => {
   }
 }
 
+// Fetches Locations
 export const fetchLocations = () => {
   if (dataLocation != null) return
   if (!fullfilled) {
@@ -61,6 +67,7 @@ export const fetchLocations = () => {
   }
 }
 
+// Display function that awaits on location and items lists to return
 async function  DashboardDisplay (pathname: string) { 
   let path = pathname.path.substring(10)
   console.log(pathname)
@@ -69,6 +76,7 @@ async function  DashboardDisplay (pathname: string) {
   console.log("grid loading")
   return  <Grid items={dataItem} locations={dataLocation}/>
 }
+// Main dashboard for application
 const Dashboard = (props) => {
   useEffect(() => {
     console.log("dashboard props: " + props.router);

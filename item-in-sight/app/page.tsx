@@ -3,8 +3,11 @@ import  Login  from './Components/Login/Login';
 import Logout  from './Components/Signup/Signup';
 import { useState } from 'react';
 
-export default function Home() {
+// Default entry page for application 
 
+export default function Home() {
+  
+// Using useState hook to manage the state of login
  const [login, setLogin] = useState(true);
   return (
     <div className="bg-main-background flex w-screen h-screen flex-col items-center justify-center">
