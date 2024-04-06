@@ -71,7 +71,6 @@ init_error_handlers(my_app)
 # Register the routes with dependency injection
 init_mongoping_route(my_app)
 init_ping_route(my_app)
-init_getimage_route(my_app)
 init_setimage_route(my_app)
 init_setlocation_route(my_app)
 init_getlocation_route(my_app)
