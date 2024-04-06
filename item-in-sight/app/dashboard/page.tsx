@@ -1,26 +1,33 @@
-
+'use client'
 import React, { Suspense } from 'react'
 import  Layout from '../Components/Layout/Layout';
 import Grid from '../Components/GridComponents/Grid'
 import { Item, Location } from '@/app/lib/definition'
 import { itemPlaceHolder, locationPlaceHolder } from '@/app/lib/placeholder-data'
-import ItemsList from '../Components/GridComponents/GridItem';
+import { usePathname } from 'next/navigation'
 
 let fullfilled = false;
 let promiseItem : Promise<Item[]>;
 let dataItem : Item[];
 let promiseLocation : Promise<Location[]>;
 let dataLocation : Location[];
-let data : [Item[], Location[]]
 
 function getItems(user: string) {
   return itemPlaceHolder
 }
 
-function getLocations(user : string) {
-  return locationPlaceHolder
+function getLocations(locationName : string) {
+  
+  // const filteredArray = itemPlaceHolder.filter(item => item.name === locationName)
+  // console.log(filteredArray)
+  let temp: Array<Location> = []
+  temp.push(locationPlaceHolder[1]) 
+  temp.push(locationPlaceHolder[2]) 
+  //temp.push(filteredArray)
+  return temp
 }
 export const fetchItems = () => {
+  if (dataItem != null) return
   if (!fullfilled) {
     if(!promiseItem)
     {
@@ -28,7 +35,6 @@ export const fetchItems = () => {
         const resItems = await getItems("testUser")
         dataItem = resItems;
         resolve(dataItem)
-        //console.log("Resolved Items")
         });
     }
     else {
@@ -38,14 +44,13 @@ export const fetchItems = () => {
 }
 
 export const fetchLocations = () => {
-  //console.log("fetch Locations")
+  if (dataLocation != null) return
   if (!fullfilled) {
     if(!promiseLocation) {
       promiseLocation = new Promise(async (resolve) => {
       const resLocations = await getLocations("testUser")
       dataLocation = resLocations;
       resolve(resLocations)
-      //console.log("Resolved Locations")
       });
     }
     else {
@@ -54,16 +59,20 @@ export const fetchLocations = () => {
   }
 }
 
-async function  DashboardDisplay () { 
+async function  DashboardDisplay (pathname: string) { 
+  let path = pathname.path.substring(10)
+  console.log(pathname)
   await fetchItems();
   await fetchLocations();
+  console.log("grid loading")
   return  <Grid items={dataItem} locations={dataLocation}/>
 }
 function Dashboard() {
+  const pathname = usePathname()
     return (
       <Layout>
         <Suspense fallback={"Loading... "}>
-          <DashboardDisplay/>
+          <DashboardDisplay path={pathname} />
         </Suspense>
       </Layout>
     )

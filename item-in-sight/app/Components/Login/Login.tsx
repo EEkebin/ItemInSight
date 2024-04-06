@@ -17,17 +17,16 @@ const Login = () => {
     }
     useEffect(() => {
         if (login) {
-            
             router.push('/dashboard')
          }
       }, [login]);
 
     return (
         <div className="text-center">
-            <h1 className="font-bold text-white text-xl text-center p-5"> Login </h1>
+            <h1 className="font-bold text-white text-xl text-center"> Login </h1>
             <form action={formAction} id="loginForm" 
-            className="flex flex-col items-center p-4">
-                <p className="font-bold text-xl mb-2"> Email </p>
+            className="flex flex-col items-center ">
+                <p className="font-bold text-xl mb-2 font-mono text-white"> Email </p>
                 <input className="font-bold text-md p-2 rounded-sm"
                 name="email"
                 id="email"
@@ -35,16 +34,16 @@ const Login = () => {
                 placeholder='Email'
                 required/>
 
-                <p className="font-bold text-lg"> Password </p>
+                <p className="font-bold text-lg font-mono text-white"> Password </p>
 
-                <input className="font-bold text-md p-2 rounded-sm mb-2"
+                <input className="font-bold font-mono text-md p-2 rounded-sm mb-2"
                 name="password"
                 id="password"
                 type="password" 
                 placeholder='Password'
                 required/>
 
-                <button className="font-bold text-xl bg-ui-button hover:bg-ui-button-hover text-white p-3 rounded-md px-5"
+                <button className="w-3/4 font-mono font-bold text-md bg-ui-button hover:bg-ui-button-hover text-white p-2 m-3 rounded-2xl px-2"
                 type='submit'>
                     Login
                 </button>

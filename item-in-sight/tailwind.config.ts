@@ -18,12 +18,24 @@ const config: Config = {
       'silver': '#ecebff',
       'bubble-gum': '#ff77e9',
       'bermuda': '#78dcca',
-      'ui-button-hover': '#09135c',
-      'ui-button': '#050b36',
-      'main-background': '#020414',
-      'grid-item': '#58595e',
+      'ui-button-hover': '#13141a',
+      'ui-button': '#0c0c17',
+      'main-background': '#1b1b34',
+      'grid-item': '#2b2a2a',
+      'navbar': '#13131a',
+
     },
     extend: {
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-2deg)' },
+          '50%': { transform: 'rotate(2deg)' },
+        }
+      },
+      animation: {
+        wiggle: 'wiggle 1s ease-in-out',
+        spinfast: 'spin 0.01s linear infinite',
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
