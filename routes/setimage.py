@@ -5,7 +5,7 @@ from utils.auth import require_auth
 import os
 
 def init_app(app_instance):
-    @app_instance.route('/setimage', methods=['POST'])
+    @app_instance.app.route('/setimage', methods=['POST'])
     @require_auth
     def setimage():
         try:
