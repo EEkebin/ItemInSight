@@ -20,7 +20,7 @@ def init_app(app_instance):
             # Base URL of the first backend
             idb_base_url = app_instance.idb_base_url
             # Endpoint for the specific image
-            image_endpoint = f"{idb_base_url}/get/{image_name}"
+            image_endpoint = f"{idb_base_url}/get/{username + "/" + image_name}"
             # Authorization key
             auth_key = app_instance.idb_auth  # This should ideally be stored/configured securely
             
