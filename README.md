@@ -4,14 +4,12 @@ An Inventory System Manager to manage inventory whereabouts.
 
 ## Contents
 
-- [ItemInSight](#iteminsight)
-  - [Contents](#contents)
-  - [Introduction](#introduction)
-  - [Documentation](#documentation)
-  - [Technologies](#technologies)
-  - [License](#license)
-  - [Credits](#credits)
-  - [Disclaimers](#disclaimers)
+1. [Introduction](#introduction)
+2. [Documentation](#documentation)
+3. [Technologies](#technologies)
+4. [License](#license)
+5. [Credits](#credits)
+6. [Disclaimers](#disclaimers)
 
 ---
 
