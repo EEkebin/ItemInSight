@@ -2,7 +2,7 @@ from flask import request, jsonify
 from flask_cors import cross_origin
 
 def init_app(app_instance):
-    @app_instance.app.route('/getuser', methods=['GET'])
+    @app_instance.app.route('/getuser', methods=['POST'])
     @cross_origin()
     def getuser():
         try:
