@@ -13,7 +13,7 @@ from routes.ping import init_app as init_ping_route
 
 # TODO: implement the following routes
 
-# from routes.getimage import init_app as init_getimage_route
+from routes.getimage import init_app as init_getimage_route
 # from routes.setimage import init_app as init_setimage_route
 
 # from routes.getuser import init_app as init_getuser_route
@@ -67,6 +67,7 @@ init_error_handlers(my_app)
 # Register the routes with dependency injection
 init_mongoping_route(my_app)
 init_ping_route(my_app)
+init_getimage_route(my_app)
 
 if __name__ == "__main__":
     # If testing locally, ensure that .env is created and necessary variables are set, including FLASK_ENV
