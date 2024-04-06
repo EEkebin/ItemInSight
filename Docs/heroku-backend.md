@@ -6,7 +6,7 @@ This is the documentation for Heroku. This documentation details the functionali
 
 ## Endpoints
 
-Base URL: `http://50.34.40.38`
+Base URL: `https://item-in-sight-staging-027791941423.herokuapp.com`
 
 ### Authentication
 
