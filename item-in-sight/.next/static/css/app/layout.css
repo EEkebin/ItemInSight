@@ -884,5 +884,16 @@ video {
   .hover\:md\:animate-wiggle:hover {
     animation: wiggle 1s ease-in-out;
   }
+
+  @keyframes spin {
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .hover\:md\:animate-spinfast:hover {
+    animation: spin 0.01s linear infinite;
+  }
 }
 

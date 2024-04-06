@@ -1,10 +1,12 @@
 'use client'
-import React, { Suspense } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import  Layout from '../Components/Layout/Layout';
 import Grid from '../Components/GridComponents/Grid'
 import { Item, Location } from '@/app/lib/definition'
 import { itemPlaceHolder, locationPlaceHolder } from '@/app/lib/placeholder-data'
 import { usePathname } from 'next/navigation'
+import { withRouter } from 'next/router'
+import { useRouter } from 'next/router'
 
 let fullfilled = false;
 let promiseItem : Promise<Item[]>;
@@ -67,7 +69,11 @@ async function  DashboardDisplay (pathname: string) {
   console.log("grid loading")
   return  <Grid items={dataItem} locations={dataLocation}/>
 }
-function Dashboard() {
+const Dashboard = (props) => {
+  useEffect(() => {
+    console.log("dashboard props: " + props.router);
+}, [props]);
+
   const pathname = usePathname()
     return (
       <Layout>

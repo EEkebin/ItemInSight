@@ -33,6 +33,8 @@ Lastly, for deployment, Heroku was utilized to seamlessly host and scale our sol
 
 [Backend for the images server database](https://github.com/EEkebin/ItemInSight/blob/main/Docs/images-backend.md)
 
+[Backend for Heroku](https://github.com/EEkebin/ItemInSight/blob/main/Docs/heroku-backend.md)
+
 ## Technologies
 
 ItemInSight is built using the following technologies:
