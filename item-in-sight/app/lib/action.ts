@@ -36,26 +36,33 @@ export async function signup(
     prevState: string | undefined,
     formData: FormData
 ) {
-    try {
-        if (formData.get("password-rentry") != formData.get("password")) {
-            throw new Error("Passwords don't match")
-        }
-        bcrypt
-            .hash(formData.get("password"), 10)
-            .then(hash => {
-                console.log('Hash ', hash)
-            })
-    } catch (error) {
-        if (error) {
-            switch (error) {
-                case 'CredentialsSignin':
-                    return 'Invalid Credentials';
+    if (formData.get("password-rentry") != formData.get("password")) {
+        throw new Error("Passwords don't match")
+    }
+    const username = formData.get("username");
+    let password = formData.get("password");
+    console.log(username + " " + password)
 
-                default:
-                    console.log(error)
-                    return 'Something went wrong';
-            }
+    // Ensure username and password are strings
+    if (typeof username !== 'string' || !username) throw new Error("Username not provided");
+    if (typeof password !== 'string' || !password) throw new Error("Password not provided");
+    password = crypto.createHash('sha256').update(password).digest('hex');
+
+    const response = await fetch("https://item-in-sight-staging-027791941423.herokuapp.com/setuser",
+        {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password })
         }
-        throw error;
+    );
+
+    
+    if (response.ok) {
+        return true;
+    }
+    else {
+        return false;
     }
 }

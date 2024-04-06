@@ -12,10 +12,10 @@ const Signup = () => {
             className="flex flex-col items-center">
                 <p className="font-bold text-xl mb-2 text-white"> Email </p>
                 <input className="font-bold text-md p-2 rounded-sm mb-5"
-                name="email"
-                id="email"
-                type="email" 
-                placeholder='Email'
+                name="username"
+                id="username"
+                type="username" 
+                placeholder='Username'
                 required/>
 
                 <p className="font-bold text-lg text-white"> Password </p>
