@@ -1,8 +1,14 @@
 'use client'
-import { authenticate } from '../../lib/action';
 import { useFormState } from 'react-dom'
 import { useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react';
+import { authenticate } from '../../lib/action';
+
+interface AuthResponse {
+    success: boolean;
+    username?: string; // Optional because it might not be present on failure
+    password?: string; // Optional for the same reason, and storing passwords in localStorage is generally discouraged
+}
 
 const Login = () => {
     const [state, formAction] = useFormState(handleSubmit, null);
@@ -10,9 +16,12 @@ const Login = () => {
     const router = useRouter()
     console.log("loginstate");
     async function handleSubmit(currentState: string | undefined, formData: FormData) {
-        if (await authenticate(formData) == true) {
+        const returnAuth: AuthResponse = await authenticate(formData);
+        if (returnAuth.success) {
             console.log("Login")
             setLogin(true)
+            localStorage.setItem('username', returnAuth.username!);
+            localStorage.setItem('password', returnAuth.password!);
         }
         else {
             return false;
