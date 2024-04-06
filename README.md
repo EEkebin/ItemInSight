@@ -39,13 +39,26 @@ Lastly, for deployment, Heroku was utilized to seamlessly host and scale our sol
 
 ItemInSight is built using the following technologies:
 
-- [Python](https://www.python.org/)
-- [Flask](https://flask.palletsprojects.com/en/3.0.x/)
-- [Heroku](https://www.heroku.com/)
-- [Ubuntu Server](https://ubuntu.com/)
-- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-- [Next.js](https://nextjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
+> - [Python](https://www.python.org/)
+    - Used for its many publicly available resources and packages.
+
+> - [Flask](https://flask.palletsprojects.com/en/3.0.x/)
+    - Developed Backend Application Programming Interface (API) for two different databases.
+
+> - [Heroku](https://www.heroku.com/)
+    - Enabled automated deployment and staging of git branches, offering scalability.
+
+> - [Ubuntu Server](https://ubuntu.com/)
+    - Remote server hosted as a virtual machine in the cloud that securely stores images in a custom database.
+
+> - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+    - Utilized as the database for Users of ItemInSight.
+
+> - [Next.js](https://nextjs.org/)
+    - Utilized as the Front-End framework for the deployment of the web application.
+
+> - [Tailwind CSS](https://tailwindcss.com/)
+    - Utilized for inline CSS for less file clutter, increasing productivity.
 
 
 ## License
