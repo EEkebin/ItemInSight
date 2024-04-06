@@ -1,20 +1,22 @@
 import React, { Suspense } from 'react'
-import  Layout from '../Components/Layout/layout';
+import  Layout from '../Components/Layout/Layout';
 
 
-const Main = () => { 
+const DashboardDisplay = () => { 
     return ( 
-        <div>
+        <div className="w-32 h-screen">
             <h1>Dashboard</h1>
         </div>
     )
 }
-export default function Dashboard() {
+function Dashboard() {
     return (
       <Layout>
         <Suspense fallback={"Loading... "}>
-          <Main/>
+          <DashboardDisplay/>
         </Suspense>
       </Layout>
     )
   }
+
+  export default Dashboard;
