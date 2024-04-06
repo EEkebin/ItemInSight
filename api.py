@@ -20,6 +20,8 @@ from routes.setuser import init_app as init_setuser_route
 from routes.getlocation import init_app as init_getlocation_route
 from routes.setlocation import init_app as init_setlocation_route
 
+from routes.getuser import init_app as init_getuser_route
+
 
 class App:
     # We will inject an App reference into the routes so we can reuse things easily
@@ -73,6 +75,7 @@ init_setimage_route(my_app)
 init_setlocation_route(my_app)
 init_getlocation_route(my_app)
 init_setuser_route(my_app)
+init_getuser_route(my_app)
 
 if __name__ == "__main__":
     # If testing locally, ensure that .env is created and necessary variables are set, including FLASK_ENV
