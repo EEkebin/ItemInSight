@@ -4,10 +4,9 @@ import requests
 import os
 
 def init_app(app_instance):
-    @app_instance.app.route('/setimage<path:image_name>', methods=['POST'])
+    @app_instance.app.route('/setimage/<path:image_name>', methods=['POST'])
     def setimage(image_name):
         try:
-
             username = request.headers.get('username')
             password = request.headers.get('password')
 
@@ -16,8 +15,8 @@ def init_app(app_instance):
                 return jsonify({"error": "Unauthorized: Incorrect username or password"}), 401
             
             # Check if there is a file in the request
-            if 'file' not in request.files:
-                return jsonify({"error": "No file part in the request."}), 400
+            if 'image' not in request.files:
+                return jsonify({"error": "No image file in the request."}), 400
             
             file = request.files['image']
 
@@ -26,7 +25,7 @@ def init_app(app_instance):
             # Base URL of the first backend
             idb_base_url = app_instance.idb_base_url
             # Endpoint for saving the image
-            save_endpoint = f"{idb_base_url}/save/{username + "/" + filename}"
+            save_endpoint = f"{idb_base_url}/save/{username + '/' + filename}"
             # Authorization key
             auth_key = app_instance.idb_auth  # This should ideally be stored/configured securely
             
