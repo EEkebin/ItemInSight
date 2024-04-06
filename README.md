@@ -17,7 +17,19 @@ An Inventory System Manager to manage inventory whereabouts.
 
 ## Introduction
 
+Our team was entrusted with developing a sophisticated solution aimed at optimizing efficiency and productivity. After careful consideration, we determined that a home inventory management web application would offer the most effective means to address this need.
 
+The motivation behind our initiative stems from the all-too-familiar experience of spending valuable time searching for misplaced items. With our innovative web application, ItemInSight, this challenge becomes a thing of the past. By leveraging a centralized database, ItemInSight meticulously catalogues items alongside their designated locations and corresponding images, ensuring swift retrieval and minimizing unnecessary search efforts.
+
+In crafting the frontend architecture, we opted for Next.js and Tailwind CSS due to their simplicity and widespread industry adoption, which aligns seamlessly with modern development practices.
+
+For the database layer, MongoDB Atlas was chosen for its robust tree structure, offering an optimal storage solution for organizing containers and items efficiently.
+
+Python, coupled with Flask, was selected for backend development to deliver a reliable and scalable API that seamlessly integrates with our frontend architecture.
+
+To manage item images securely, an Ubuntu Server was employed, ensuring reliable storage and accessibility.
+
+Lastly, for deployment, Heroku was utilized to seamlessly host and scale our solution, providing a stable and accessible platform for our application.
 
 ## Usage
 
