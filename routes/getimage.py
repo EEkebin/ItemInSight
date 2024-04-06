@@ -6,8 +6,15 @@ import requests
 def init_app(app_instance):
     @app_instance.app.route('/getimage/<path:image_name>', methods=['GET'])
     @require_auth
-    def getimage(image_name):
+    def getimage():
         try:
+            username = request.headers.get('username')
+            password = request.headers.get('password')
+
+            user = app_instance.get_authed_user(username, password)
+            if not user:
+                return jsonify({"error": "Unauthorized: Incorrect username or password"}), 401
+
             # Check if the file extension is .png
             if not image_name.lower().endswith('.png'):
                 return jsonify({"error": "Only PNG images are allowed."}), 400

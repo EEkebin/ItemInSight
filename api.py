@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 import os
 
 from utils.error_handlers import init_error_handlers
+from utils.auth import get_authed_user
 
 from routes.mongoping import init_app as init_mongoping_route
 from routes.ping import init_app as init_ping_route
@@ -55,6 +56,9 @@ class App:
         self.idb_port = os.environ.get('IDB_PORT', 'default_idb_port')
         self.idb_base_url = os.environ.get('IDB_BASE_URL', 'default_idb_base_url')
         self.idb_auth = os.environ.get('IDB_AUTH', 'default_idb_auth')
+        
+        # Set the get_authed_user function
+        self.get_authed_user = get_authed_user
 
 
 # Expose app at the module level
