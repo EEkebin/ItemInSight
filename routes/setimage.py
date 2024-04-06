@@ -16,7 +16,7 @@ def init_app(app_instance):
                 return jsonify({"error": "Unauthorized: Incorrect username or password"}), 401
             
             # Check if there is a file in the request
-            if 'file' not in request.files:
+            if 'image' not in request.files:
                 return jsonify({"error": "No file part in the request."}), 400
             
             file = request.files['image']
