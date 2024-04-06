@@ -7,7 +7,7 @@ const LocationGrid: React.FC<{locations : Location[]}> = (props) => {
     return(
         <div className="flex flex-col items-center w-full">
         <h1 className="font-bold text-xl text-white">Location : {props.locations[0].parentLocation}</h1>
-        <div className="grid grid-cols-3 space-x-10 w-full h-full ">
+        <div className="grid grid-cols-3 space-10 w-full h-full place-items-center">
         {locationList.map((location, index) => (
             <LocationCard  key={index} location={location} />
         ))}
