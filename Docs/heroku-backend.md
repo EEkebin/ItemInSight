@@ -22,6 +22,21 @@ Base URL: `https://item-in-sight-staging-027791941423.herokuapp.com`
   - `400`: Missing or invalid username/password.
   - `500`: Internal server error.
 
+#### Authenticate User
+
+- **Endpoint**: `/getuser`
+- **Method**: `POST`
+- **Description**: Authenticates a user by verifying their username and password.
+- **Headers**: None
+- **Body** (JSON):
+  - `username`: The user's username.
+  - `password`: The user's password.
+- **Responses**:
+  - `200`: User authenticated successfully.
+  - `400`: Username and password are required.
+  - `401`: Unauthorized: Incorrect username or password.
+  - `500`: Internal server error.
+
 ### Image Handling
 
 #### Upload Image
