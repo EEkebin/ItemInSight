@@ -2,7 +2,7 @@ from flask import request, jsonify
 import requests
 
 def init_app(app_instance):
-    @app_instance.route('/setlocation/<path:dir_path>', methods=['POST'])
+    @app_instance.app.route('/setlocation/<path:dir_path>', methods=['POST'])
     def setlocation(dir_path):
         username = request.headers.get('username')
         password = request.headers.get('password')
