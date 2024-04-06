@@ -9,7 +9,7 @@ def init_app(app_instance):
             username = request.headers.get('username')
             password = request.headers.get('password')
 
-            user = app_instance.get_authed_user(username, password)
+            user = app_instance.get_authed_user(app_instance, username, password)
             if not user:
                 return jsonify({"error": "Unauthorized: Incorrect username or password"}), 401
 
