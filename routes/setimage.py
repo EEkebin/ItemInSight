@@ -2,7 +2,7 @@
 from flask import request, jsonify
 from werkzeug.utils import secure_filename
 from utils.auth import require_auth
-import requests
+import request
 import os
 
 def init_app(app_instance):
