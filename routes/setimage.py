@@ -4,7 +4,7 @@ import requests
 import os
 
 def init_app(app_instance):
-    @app_instance.app.route('/setimage<path:image_path>', methods=['POST'])
+    @app_instance.app.route('/setimage/<path:image_path>', methods=['POST'])
     def setimage(image_path):
         try:
 
