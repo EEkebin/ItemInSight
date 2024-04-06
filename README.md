@@ -46,7 +46,7 @@ ItemInSight is built using the following technologies:
     - Developed Backend Application Programming Interface (API) for two different databases.
 
 > - [Heroku](https://www.heroku.com/)
-    - Enabled automated deployment and staging of git branches, offering scalability.
+    - Enabled automated deployment and staging of git branches, offering scalability and security.
 
 > - [Ubuntu Server](https://ubuntu.com/)
     - Remote server hosted as a virtual machine in the cloud that securely stores images in a custom database.
