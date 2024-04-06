@@ -1,41 +1,37 @@
-# routes/getlocation.py
-from flask import jsonify, request, Response
+from flask import request, jsonify
 import requests
-from bson import ObjectId
 
 def init_app(app_instance):
-    @app_instance.app.route('/getlocation/<path:location_path>', methods=['GET'])
-    def getlocation(location_path):
-        try:
-            username = request.headers.get('username')
-            password = request.headers.get('password')
+    @app_instance.app.route('/getlocation/<path:dir_path>', methods=['GET'])
+    def getlocation(dir_path):
+        username = request.headers.get('username')
+        password = request.headers.get('password')
 
-            user = app_instance.get_authed_user(app_instance, username, password)
-            if not user:
-                return jsonify({"error": "Unauthorized: Incorrect username or password"}), 401
+        user = app_instance.get_authed_user(app_instance, username, password)
+        if not user:
+            return jsonify({"error": "Unauthorized: Incorrect username or password"}), 401
 
-            # Split the path into individual location names
-            location_names = location_path.split('/')
+        dirname = dir_path
 
-            # Retrieve the user's locations
-            user_locations = user.get('locations', [])
-            location = find_location_by_path(user_locations, location_names, app_instance.db)
+        # Base URL of the first backend
+        idb_base_url = app_instance.idb_base_url
+        # Endpoint for getting the location
+        get_endpoint = f"{idb_base_url}/getdir/{username}/{dirname}"
+        # Authorization key
+        auth_key = app_instance.idb_auth  # This should ideally be stored/configured securely
 
-            if location:
-                return jsonify(location)
-            else:
-                return jsonify({"error": "Location not found"}), 404
+        # Prepare the request to the first backend
+        headers = {
+            "Authorization": auth_key
+        }
 
-        except Exception as e:
-            return jsonify({"error": str(e)}), 500
+        # Make the request to the first backend
+        response = requests.get(get_endpoint, headers=headers)
 
-def find_location_by_path(location_ids, location_names, db):
-    current_level_locations = [db.locations.find_one({"_id": ObjectId(location_id)}) for location_id in location_ids]
-
-    for name in location_names:
-        next_location = next((loc for loc in current_level_locations if loc and loc.get('name') == name), None)
-        if not next_location:
-            return None
-        current_level_locations = [db.locations.find_one({"_id": ObjectId(subloc_id)}) for subloc_id in next_location.get('sublocations', [])]
-
-    return next_location
+        # Handle the response from the first backend
+        if response.status_code == 200:
+            location_data = response.json()
+            return jsonify(location_data), 200
+        else:
+            # Forward the error from the first backend
+            return jsonify({"error": "Failed to retrieve location"}), response.status_code
