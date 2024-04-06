@@ -24,7 +24,10 @@ def init_app(app_instance):
         auth_key = app_instance.idb_auth  # This should ideally be stored/configured securely
 
         # Prepare the request to the first backend
-        headers={"Authorization": auth_key}
+        headers = {
+            "Authorization": auth_key,
+            "Content-Type": "application/json"
+        }
         data = {'description': description}
 
         # Make the request to the first backend
