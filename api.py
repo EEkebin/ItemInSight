@@ -38,6 +38,11 @@ class App:
         self.client = MongoClient(self.mongo_uri, server_api=ServerApi('1'))
         self.db = self.client[self.db_name]
 
+        # Get the Image Database variables
+        self.idb_port = os.environ.get('IDB_PORT', 'default_idb_port')
+        self.idb_ip = os.environ.get('IDB_IP', 'default_idb_ip')
+        self.idb_auth = os.environ.get('IDB_AUTH', 'default_idb_auth')
+
 
 # Expose app at the module level
 my_app = App()
