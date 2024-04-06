@@ -4,17 +4,14 @@ An Inventory System Manager to manage inventory whereabouts.
 
 ## Contents
 
-1. [Introduction](#introduction)
-
-2. [Usage](#usage)
-
-3. [Technologies](#technologies)
-
-4. [License](#license)
-
-5. [Credits](#credits)
-
-6. [Disclaimers](#disclaimers)
+- [ItemInSight](#iteminsight)
+  - [Contents](#contents)
+  - [Introduction](#introduction)
+  - [Usage](#usage)
+  - [Technologies](#technologies)
+  - [License](#license)
+  - [Credits](#credits)
+  - [Disclaimers](#disclaimers)
 
 ---
 
@@ -28,6 +25,15 @@ An Inventory System Manager to manage inventory whereabouts.
 
 ## Technologies
 
+ItemInSight is built using the following technologies:
+
+- [Python](https://www.python.org/)
+- [Flask](https://flask.palletsprojects.com/en/3.0.x/)
+- [Heroku](https://www.heroku.com/)
+- [Ubuntu Server](https://ubuntu.com/)
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
 
 ## License
