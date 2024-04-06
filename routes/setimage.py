@@ -19,7 +19,7 @@ def init_app(app_instance):
             if 'file' not in request.files:
                 return jsonify({"error": "No file part in the request."}), 400
             
-            file = request.files['file']
+            file = request.files['image']
 
             # Check if the file has a filename
             if file.filename == '':
