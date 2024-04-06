@@ -21,7 +21,7 @@ from routes.setimage import init_app as init_setimage_route
 # from routes.setuser import init_app as init_setuser_route
 
 # from routes.getlocation import init_app as init_getlocation_route
-# from routes.setlocation import init_app as init_setlocation_route
+from routes.setlocation import init_app as init_setlocation_route
 
 # END TODO
 
@@ -73,6 +73,7 @@ init_mongoping_route(my_app)
 init_ping_route(my_app)
 init_getimage_route(my_app)
 init_setimage_route(my_app)
+init_setlocation_route(my_app)
 
 if __name__ == "__main__":
     # If testing locally, ensure that .env is created and necessary variables are set, including FLASK_ENV

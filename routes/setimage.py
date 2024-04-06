@@ -34,7 +34,7 @@ def init_app(app_instance):
             # Base URL of the first backend
             idb_base_url = app_instance.idb_base_url
             # Endpoint for saving the image
-            save_endpoint = f"{idb_base_url}/save/{username + "/" + filename}"
+            save_endpoint = f"{idb_base_url}/savefile/{username + "/" + filename}"
             # Authorization key
             auth_key = app_instance.idb_auth  # This should ideally be stored/configured securely
             
