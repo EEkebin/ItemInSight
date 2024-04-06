@@ -4,8 +4,8 @@ import requests
 import os
 
 def init_app(app_instance):
-    @app_instance.app.route('/setimage', methods=['POST'])
-    def setimage():
+    @app_instance.app.route('/setimage<path:image_name>', methods=['POST'])
+    def setimage(image_name):
         try:
 
             username = request.headers.get('username')
@@ -19,17 +19,9 @@ def init_app(app_instance):
             if 'file' not in request.files:
                 return jsonify({"error": "No file part in the request."}), 400
             
-            file = request.files['file']
+            file = request.files['image']
 
-            # Check if the file has a filename
-            if file.filename == '':
-                return jsonify({"error": "No selected file."}), 400
-            
-            # Ensure the file is a PNG image
-            if not file or not file.filename.lower().endswith('.png'):
-                return jsonify({"error": "Only PNG images are allowed."}), 400
-            
-            filename = file.name
+            filename = image_name
 
             # Base URL of the first backend
             idb_base_url = app_instance.idb_base_url
