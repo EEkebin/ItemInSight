@@ -13,11 +13,11 @@ def init_app(app_instance):
                 return jsonify({"error": "Only PNG images are allowed."}), 400
             
             # Base URL of the first backend
-            idb_base_url = app_instance.config['IDB_BASE_URL']
+            idb_base_url = app_instance.idb_base_url
             # Endpoint for the specific image
             image_endpoint = f"{idb_base_url}/get/{image_name}"
             # Authorization key
-            auth_key = "yv0R0UiXE4VSMPXWs"  # This should ideally be stored/configured securely
+            auth_key = app_instance.idb_auth  # This should ideally be stored/configured securely
             
             # Make a request to the first backend to get the image
             response = requests.get(image_endpoint, headers={"Authorization": auth_key})
