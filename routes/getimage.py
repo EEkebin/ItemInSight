@@ -4,7 +4,7 @@ import requests
 
 def init_app(app_instance):
     @app_instance.app.route('/getimage/<path:image_name>', methods=['GET'])
-    def getimage():
+    def getimage(image_name):
         try:
             username = request.headers.get('username')
             password = request.headers.get('password')
