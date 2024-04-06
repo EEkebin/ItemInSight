@@ -1,6 +1,5 @@
 # routes/setimage.py
 from flask import request, jsonify
-from werkzeug.utils import secure_filename
 import requests
 import os
 
@@ -8,6 +7,14 @@ def init_app(app_instance):
     @app_instance.app.route('/setimage', methods=['POST'])
     def setimage():
         try:
+
+            username = request.headers.get('username')
+            password = request.headers.get('password')
+
+            user = app_instance.get_authed_user(app_instance, username, password)
+            if not user:
+                return jsonify({"error": "Unauthorized: Incorrect username or password"}), 401
+            
             # Check if there is a file in the request
             if 'file' not in request.files:
                 return jsonify({"error": "No file part in the request."}), 400
@@ -22,13 +29,12 @@ def init_app(app_instance):
             if not file or not file.filename.lower().endswith('.png'):
                 return jsonify({"error": "Only PNG images are allowed."}), 400
             
-            # Secure the filename
-            filename = secure_filename(file.filename)
+            filename = file.name
 
             # Base URL of the first backend
             idb_base_url = app_instance.idb_base_url
             # Endpoint for saving the image
-            save_endpoint = f"{idb_base_url}/save/{filename}"
+            save_endpoint = f"{idb_base_url}/save/{username + "/" + filename}"
             # Authorization key
             auth_key = app_instance.idb_auth  # This should ideally be stored/configured securely
             
