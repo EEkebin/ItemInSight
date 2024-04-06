@@ -4,6 +4,7 @@ from pymongo import MongoClient
 from pymongo.server_api import ServerApi
 from urllib.parse import quote_plus
 from dotenv import load_dotenv
+import requests
 import os
 
 from utils.error_handlers import init_error_handlers
