@@ -11,6 +11,20 @@ from utils.error_handlers import init_error_handlers
 from routes.mongoping import init_app as init_mongoping_route
 from routes.ping import init_app as init_ping_route
 
+# TODO: implement the following routes
+
+# from routes.getimage import init_app as init_getimage_route
+# from routes.setimage import init_app as init_setimage_route
+
+# from routes.getuser import init_app as init_getuser_route
+# from routes.setuser import init_app as init_setuser_route
+
+# from routes.getlocation import init_app as init_getlocation_route
+# from routes.setlocation import init_app as init_setlocation_route
+
+# END TODO
+
+
 # Sending the GET request
 response = requests.get(url, headers=headers)
 

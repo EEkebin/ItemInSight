@@ -1,0 +1,33 @@
+# The URL where you will send the POST request
+url = "http://servepc.com:42069/save/test.py"
+
+# The expected authorization key
+auth_key = "yv0R0UiXE4VSMPXWs"
+
+# Headers to be sent with the request
+headers = {
+    "Authorization": auth_key
+}
+
+# The path to the file you want to upload
+file_path = "api.py"
+
+# Make sure the file exists
+if not os.path.isfile(file_path):
+    raise Exception("File does not exist")
+
+# The file must be sent as a dictionary with the key being the name of the form field
+# that the server expects, and the value being a tuple with the filename and the file object
+files = {'file': (os.path.basename(file_path), open(file_path, 'rb'))}
+
+# Sending the POST request with the file and headers
+response = requests.post(url, headers=headers, files=files)
+
+# Close the file after sending it
+files['file'][1].close()
+
+# Checking the response from the server
+if response.status_code == 201:
+    print("File successfully uploaded")
+else:
+    print(f"Failed to upload the file. Status code: {response.status_code}")
