@@ -7,7 +7,7 @@ An Inventory System Manager to manage inventory whereabouts.
 - [ItemInSight](#iteminsight)
   - [Contents](#contents)
   - [Introduction](#introduction)
-  - [Usage](#usage)
+  - [Documentation](#documentation)
   - [Technologies](#technologies)
   - [License](#license)
   - [Credits](#credits)
@@ -31,9 +31,9 @@ To manage item images securely, an Ubuntu Server was employed, ensuring reliable
 
 Lastly, for deployment, Heroku was utilized to seamlessly host and scale our solution, providing a stable and accessible platform for our application.
 
-## Usage
+## Documentation
 
-
+[Backend for the images server database](https://github.com/EEkebin/ItemInSight/blob/main/Docs/images-backend.md)
 
 ## Technologies
 
