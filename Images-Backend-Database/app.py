@@ -2,6 +2,7 @@ from flask import Flask, send_file, abort, request, jsonify
 import json
 import os
 from dotenv import load_dotenv
+from flask_cors import CORS
 
 load_dotenv()
 
@@ -12,6 +13,7 @@ if AUTH_KEY is None:
     raise ValueError("Missing AUTH_KEY in environment variables.")
 
 app = Flask(__name__)
+CORS(app)
 
 # Define the directory to serve files from
 FILES_DIRECTORY = os.path.join(

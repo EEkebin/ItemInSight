@@ -1,4 +1,4 @@
-// File: D:\Code\Coughacks\ItemInSight\item-in-sight\app\layout.tsx
+// File: C:\Users\kebin\Documents\code\ItemInSight\item-in-sight\app\layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
