@@ -18,9 +18,10 @@ const config: Config = {
       'silver': '#ecebff',
       'bubble-gum': '#ff77e9',
       'bermuda': '#78dcca',
-      'ui-button-hover': '#ffca85',
-      'ui-button': '#f7ad4d',
-      'main-background': '#fff5e8',
+      'ui-button-hover': '#09135c',
+      'ui-button': '#050b36',
+      'main-background': '#020414',
+      'grid-item': '#58595e',
     },
     extend: {
       backgroundImage: {
