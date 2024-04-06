@@ -12,17 +12,11 @@ from utils.get_authed_user import get_authed_user
 from routes.mongoping import init_app as init_mongoping_route
 from routes.ping import init_app as init_ping_route
 
-# TODO: implement the following routes
-
 from routes.setimage import init_app as init_setimage_route
-
-# from routes.getuser import init_app as init_getuser_route
-# from routes.setuser import init_app as init_setuser_route
+from routes.setuser import init_app as init_setuser_route
 
 from routes.getlocation import init_app as init_getlocation_route
 from routes.setlocation import init_app as init_setlocation_route
-
-# END TODO
 
 
 class App:
@@ -73,6 +67,7 @@ init_ping_route(my_app)
 init_setimage_route(my_app)
 init_setlocation_route(my_app)
 init_getlocation_route(my_app)
+init_setuser_route(my_app)
 
 if __name__ == "__main__":
     # If testing locally, ensure that .env is created and necessary variables are set, including FLASK_ENV
