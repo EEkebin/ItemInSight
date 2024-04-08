@@ -6,7 +6,7 @@ This documentation outlines the endpoints of a Flask API designed for managing f
 
 ## Endpoints
 
-Base URL: `http://50.34.40.38`
+Base URL: `http://example.com`
 
 ### Save File
 
